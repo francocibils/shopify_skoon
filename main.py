@@ -47,6 +47,8 @@ if st.button('Process file'):
     df_2 = df_2[((df_2['Tags_mapped'] == 'PARENT') | (df_2['Tags_mapped'] == 'ONE OFFS')) & (df_2['has_discount'] == 1)]
     pivot_df_2 = df_2.groupby(['Date', 'Tags_mapped']).size().unstack(fill_value = 0)
 
+    st.success('Shopify file has been processed successfully.')
+    
     output = BytesIO()
     with pd.ExcelWriter(output, engine = 'xlsxwriter') as writer:
         pivot_df_1.to_excel(writer, index = True, sheet_name = 'Gifts & Reships')
