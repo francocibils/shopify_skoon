@@ -39,7 +39,7 @@ if st.button('Process file'):
         lambda x: 'Free-reships' if 'free' in x or 'reship' in x else 'Gifts'
     )
     pivot_df_1 = df_1.groupby(['Date', 'discount_type']).size().unstack(fill_value = 0)
-    pivot_df_1 = pivot_df_1[['Gifts', 'Free-reships']]
+    # pivot_df_1 = pivot_df_1[['Gifts', 'Free-reships']]
 
     # Coupons (sign-ups and one-offs)
     df_2 = df.copy(deep = True)
